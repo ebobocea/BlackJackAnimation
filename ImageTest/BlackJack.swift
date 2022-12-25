@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct ImageTestApp: App {
+struct BlackJack: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -15,16 +15,15 @@ struct CardView: View {
         }
         var body: some View {
             
-            VStack{
-                
                 if image != nil {
                     image!
                         .resizable()
                         .frame(width: 100, height: 150)
+                        .shadow(radius: 3)
                 } else {
                     Text("No image")
                 }
-            }
+
         }
 }
 

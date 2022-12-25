@@ -10,6 +10,7 @@ import SwiftUI
 struct TestOne: View {
     @ObservedObject var player: Player
     @State private var deck: Deck
+    var hasBlackJack = false
     
     init(player: Player, deck: Deck) {
         self.player = player
@@ -17,26 +18,33 @@ struct TestOne: View {
         deck.shuffle()
         player.receiveCard(card: deck.deal()!)
         player.receiveCard(card: deck.deal()!)
+        player.calculateScore()
+        hasBlackJack = player.hasBlackjack()
     }
     
     var body: some View {
         
         VStack{
-            LazyVGrid(columns: [GridItem(.adaptive (minimum: 100), spacing: -70)]) {
-                    ForEach(player.hand) { card in
-                        
-                        CardView(image: card.image)
-                            .transition(.offset(x: 50, y: 0))
-                    }
-            }
+            
+            Text("\(player.score)")
+            Text("\(String(hasBlackJack))")
+            
+            
+            PlayerView(player: player)
+                .padding(5)
             Button(action: {
                 withAnimation(.easeInOut(duration: 0.5)){
-                    player.receiveCard(card: deck.deal()!)
+                    hitButton()
                 }
             }) {
                 Text("Hit")
             }
         }
+    }
+    
+    func hitButton(){
+        player.receiveCard(card: deck.deal()!)
+        player.calculateScore()
     }
 }
 

@@ -1,30 +1,25 @@
-//import SwiftUI
-//
-//struct PlayerView: View {
-//    let player: Player
-//    @State var deck: Deck
-//    
-//    init(player: Player, deck: Deck) {
-//        self.player = player
-//        self._deck = State(initialValue: deck)
-//    }
-//    
-//    var body: some View {
-//        self.deck.shuffle()
-//        let newCard = self.deck.deal()!
-//        self.player.receiveCard(card: newCard)
-//        
-//        VStack {
-//            ForEach(player.hand, id: \.self) { card in
-//                  card.image
-//            }
-//        }
-//    }
-//}
-//
-//struct PlayerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PlayerView(player: Player(), deck: Deck())
-//    }
-//}
-//
+import SwiftUI
+
+struct PlayerView: View {
+    @ObservedObject var player: Player
+    
+    init(player: Player) {
+        self.player = player
+    }
+    
+    var body: some View {
+        LazyVGrid(columns: [GridItem(.adaptive (minimum: 100), spacing: -70)]) {
+            ForEach(player.hand) { card in
+                CardView(image: card.image)
+                    .transition(.offset(x: 50, y: 0))
+            }
+        }
+    }
+}
+
+struct PlayerView_Previews: PreviewProvider {
+    static var previews: some View {
+        PlayerView(player: Player())
+    }
+}
+
