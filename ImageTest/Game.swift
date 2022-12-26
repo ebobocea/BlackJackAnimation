@@ -19,6 +19,13 @@ class Game {
     }
     
     func startNewGame() {
+        if !player.hand.isEmpty && !dealer.hand.isEmpty{
+            player.hand.removeAll()
+            
+            dealer.hand.removeAll()
+        }
+        
+        
         // shuffle the deck and deal initial hands to the player and dealer
         deck.shuffle()
         

@@ -8,25 +8,48 @@
 import SwiftUI
 
 struct GameView: View {
-  @ObservedObject var viewModel: GameViewModel
-  
-  var body: some View {
-    VStack {
-      Text("Player Hand: \(viewModel.playerHandTotal)")
-      Text("Dealer Hand: \(viewModel.dealerHandTotal)")
-        Text("Blackjack: \(String(viewModel.blackJack))")
-      Button(action: {
-        self.viewModel.hit()
-      }) {
-        Text("Hit")
-      }
-      Button(action: {
-        self.viewModel.stand()
-      }) {
-        Text("Stand")
-      }
+    @ObservedObject var viewModel: GameViewModel
+    
+    var body: some View {
+        VStack {
+            PlayerView(player: viewModel.game.dealer )
+                .padding(5)
+            Text("Dealer Hand: \(viewModel.dealerHandTotal)")
+            Spacer()
+            Text("Blackjack: \(String(viewModel.blackJack))")
+            Spacer()
+            Text("Player Hand: \(viewModel.playerHandTotal)")
+            PlayerView(player: viewModel.game.player )
+                .padding(5)
+            HStack{
+                Button(action: {
+                    withAnimation{
+                        self.viewModel.hit()
+                    }
+                }) {
+                    Text("Hit")
+                }
+                .padding()
+                Spacer()
+                Button(action: {
+                        self.viewModel.resetGame()
+                    
+                }){
+                    Text("New game")
+                }
+                Spacer()
+                Button(action: {
+                    withAnimation{
+                        self.viewModel.stand()
+                    }
+                }) {
+                    Text("Stand")
+                }
+                .padding()
+            }
+            
+        }
     }
-  }
 }
 
 struct GameView_Previews: PreviewProvider {

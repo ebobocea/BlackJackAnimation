@@ -15,7 +15,6 @@
 		E617EE86294D3CD5004A5857 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E617EE85294D3CD5004A5857 /* ContentView.swift */; };
 		E617EE88294D3CD7004A5857 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E617EE87294D3CD7004A5857 /* Assets.xcassets */; };
 		E617EE8B294D3CD7004A5857 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E617EE8A294D3CD7004A5857 /* Preview Assets.xcassets */; };
-		E617EE92294D3D31004A5857 /* TestOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = E617EE91294D3D31004A5857 /* TestOne.swift */; };
 		E617EE94294D3EB9004A5857 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E617EE93294D3EB9004A5857 /* CardView.swift */; };
 		E617EE96294D3EFF004A5857 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E617EE95294D3EFF004A5857 /* Card.swift */; };
 		E617EE98294D3F11004A5857 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E617EE97294D3F11004A5857 /* Deck.swift */; };
@@ -32,7 +31,6 @@
 		E617EE85294D3CD5004A5857 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E617EE87294D3CD7004A5857 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E617EE8A294D3CD7004A5857 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E617EE91294D3D31004A5857 /* TestOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOne.swift; sourceTree = "<group>"; };
 		E617EE93294D3EB9004A5857 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		E617EE95294D3EFF004A5857 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		E617EE97294D3F11004A5857 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 			children = (
 				E617EE83294D3CD5004A5857 /* BlackJack.swift */,
 				E617EE85294D3CD5004A5857 /* ContentView.swift */,
-				E617EE91294D3D31004A5857 /* TestOne.swift */,
 				E61610D1295985280004367A /* GameView.swift */,
 				E617EE93294D3EB9004A5857 /* CardView.swift */,
 				E61610CB29571C950004367A /* PlayerView.swift */,
@@ -174,7 +171,6 @@
 				E67352FB2953AF0100F02783 /* Player.swift in Sources */,
 				E617EE94294D3EB9004A5857 /* CardView.swift in Sources */,
 				E61610D0295982820004367A /* GameViewModel.swift in Sources */,
-				E617EE92294D3D31004A5857 /* TestOne.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

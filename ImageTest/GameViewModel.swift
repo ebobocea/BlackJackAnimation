@@ -11,11 +11,17 @@ class GameViewModel: ObservableObject {
     @Published var playerHandTotal: Int = 0
     @Published var dealerHandTotal: Int = 0
     @Published var blackJack: Bool = false
-    
-    private let game: Game
+    @Published var game: Game
     
     init(game: Game) {
         self.game = game
+        game.startNewGame()
+        playerHandTotal = game.player.calculateScore()
+        dealerHandTotal = game.dealer.calculateScore()
+        blackJack = game.eitherHasBlackJack()
+    }
+    
+    func resetGame(){
         game.startNewGame()
         playerHandTotal = game.player.calculateScore()
         dealerHandTotal = game.dealer.calculateScore()
