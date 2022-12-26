@@ -26,7 +26,7 @@ struct TestOne: View {
         
         VStack{
             
-            Text("\(player.score)")
+            Text("\(player.calculateScore())")
             Text("\(String(hasBlackJack))")
             
             

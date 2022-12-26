@@ -7,20 +7,13 @@
 
 import SwiftUI
 
-class Player: ObservableObject, Equatable {
-    static func == (lhs: Player, rhs: Player) -> Bool {
-        return lhs.hand == rhs.hand && lhs.score == rhs.score
-    }
-    
-
+class Player: ObservableObject {
     @Published var hand: [Card]
-    @Published var score: Int
-    
+
     init() {
         self.hand = []
-        self.score = 0
+
     }
-    
     
     func receiveCard(card: Card) {
         self.hand.append(card)
@@ -29,16 +22,16 @@ class Player: ObservableObject, Equatable {
     
     func hasBlackjack() -> Bool{
         for card in hand {
-            if card.rank == .ace && score == 21{
+            if card.rank == .ace && calculateScore() == 21{
                 return true
             }
         }
         return false
     }
     
-    func calculateScore() {
+    func calculateScore() -> Int{
         var numAces = 0
-        self.score = 0
+        var score = 0
         for card in hand {
             if card.rank == .ace {
                 numAces += 1
@@ -53,5 +46,10 @@ class Player: ObservableObject, Equatable {
                 score += 11
             }
         }
+        return score
+    }
+    
+    func isBust() -> Bool{
+        return calculateScore() > 21
     }
 }
